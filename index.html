@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio - Muhammad Rohid Dzalul</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      /* Header tetap */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 15px 0;
+        transition: all 0.3s ease;
+      }
+
+      .header-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .logo-text {
+        font-size: 24px;
+        font-weight: 700;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 5px 0;
+      }
+
+      /* Efek cahaya pada teks navigasi saat hover */
+      nav a:hover {
+        color: #6a11cb;
+        text-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        bottom: 0;
+        left: 0;
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Section utama */
+      section {
+        padding: 100px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Tentang Saya */
+      .about {
+        padding-top: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+      }
+
+      .about-content {
+        flex: 1;
+      }
+
+      .about-image {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .photo-container {
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 8px solid white;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.5s ease;
+      }
+
+      .photo-main {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.5s ease;
+      }
+
+      .photo-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      .photo-container:hover .photo-main {
+        opacity: 0;
+      }
+
+      .photo-container:hover .photo-hover {
+        opacity: 1;
+      }
+
+      .photo-container:hover {
+        transform: scale(1.05);
+      }
+
+      .section-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+
+      .section-subtitle {
+        font-size: 20px;
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .section-text {
+        margin-bottom: 30px;
+        color: #555;
+        font-size: 16px;
+      }
+
+      /* Tombol unduh CV */
+      .btn {
+        display: inline-block;
+        padding: 12px 30px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(106, 17, 203, 0.2);
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+        color: white;
+      }
+
+      /* Karya Web */
+      .portfolio {
+        background-color: #f0f4ff;
+        position: relative;
+      }
+
+      .portfolio-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+      }
+
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-item {
+        min-width: 100%;
+        padding: 30px;
+        background-color: white;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .portfolio-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .portfolio-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .portfolio-description {
+        color: #666;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .carousel-btn:hover {
+        background-color: white;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .carousel-btn.prev {
+        left: 20px;
+      }
+
+      .carousel-btn.next {
+        right: 20px;
+      }
+
+      .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 10px;
+      }
+
+      .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .indicator.active {
+        background-color: #6a11cb;
+        transform: scale(1.2);
+      }
+
+      /* Efek cahaya pada teks saat hover */
+      .text-highlight {
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .text-highlight:hover {
+        text-shadow: 0 0 10px rgba(106, 17, 203, 0.7);
+        color: #6a11cb;
+        transform: translateY(-2px);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #333;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0 30px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: #444;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background-color: #6a11cb;
+        transform: translateY(-3px);
+      }
+
+      /* Animasi saat scroll */
+      .hidden {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsif */
+      @media (max-width: 992px) {
+        .about {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .photo-container {
+          width: 300px;
+          height: 300px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        nav ul {
+          gap: 15px;
+        }
+
+        .section-title {
+          font-size: 30px;
+        }
+
+        .portfolio-header {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        .carousel-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .logo-text {
+          font-size: 20px;
+        }
+
+        nav a {
+          font-size: 14px;
+        }
+
+        .photo-container {
+          width: 250px;
+          height: 250px;
+        }
+
+        .section-title {
+          font-size: 26px;
+        }
+
+        .portfolio-item {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header tetap -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <div class="logo-icon">M</div>
+          <div class="logo-text">Muhammad Rohid Dzalul</div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#about" class="text-highlight">Tentang Saya</a></li>
+            <li><a href="#portfolio" class="text-highlight">Karya Web</a></li>
+            <li>
+              <a href="https://wa.me/6282227281213?" class="text-highlight"
+                >Kontak</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Tentang Saya -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content hidden">
+          <h1 class="section-title">
+            Halo, Saya <span class="text-highlight">Muhammad Rohid Dzalul</span>
+          </h1>
+          <h2 class="section-subtitle">Web Developer & UI/UX Designer</h2>
+          <p class="section-text">
+            saya Muhammad Rohid Dzalul, seorang pelajar yang menekuni web
+            development dan pemrograman. Selain teknologi, saya juga menyukai
+            sejarah, karena memahami masa lalu membantu membangun masa depan.
+            Saya bercita-cita melanjutkan studi di Universitas Jami’ah Islamiyah
+            Madinah.
+          </p>
+          <p class="section-text">
+            Saya selalu termotivasi untuk belajar teknologi terbaru dan
+            menerapkannya dalam proyek-proyek saya. Portofolio ini menampilkan
+            beberapa karya terbaik saya dalam pengembangan web.
+          </p>
+          <a href="#" class="btn" id="downloadCV">
+            <i class="fas fa-download"></i> Unduh CV Saya
+          </a>
+        </div>
+        <div class="about-image hidden">
+          <div class="photo-container">
+            <img src="pas foto.jpeg" alt="Foto Profil" class="photo-main" />
+            <img
+              src="myfotobaru.jpeg"
+              alt="Foto Profil Alternatif"
+              class="photo-hover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Karya Web -->
+    <section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="portfolio-header hidden">
+          <h2 class="section-title">Karya Web Saya</h2>
+          <p>Geser untuk melihat lebih banyak proyek</p>
+        </div>
+
+        <div class="carousel-container hidden">
+          <div class="carousel">
+            <!-- Item 1 -->
+            <div class="portfolio-item">
+              <img
+                src="sejarahlama.png"
+                alt="E-commerce Website"
+                class="portfolio-image"
+              />
+              <h3 class="portfolio-title">
+                Sejarah peninggalan islam di kota Palembang (versi lama)
+              </h3>
+              <p class="portfolio-description">
+                Website edukasi mengenai jejak peninggalan islam di kota
+                Palembang
+              </p>
+              <a
+                href="https://sejarah-peninggalan-islam-di-kota-p-kappa.vercel.app/"
+                class="btn"
+                >Lihat Detail</a
+              >
+            </div>
+
+            <!-- Item 2 -->
+            <div class="portfolio-item">
+              <img
+                src="sejarahbaru.png"
+                alt="Analytics Dashboard"
+                class="portfolio-image"
+              />
+              <h3 class="portfolio-title">
+                Sejarah peninggalan islam di kota Palembang (versi baru)
+              </h3>
+              <p class="portfolio-description">
+                Website edukasi mengenai jejak peninggalan islam di kota
+                Palembang
+              </p>
+              <a
+                href="https://khazanah-islam-palembang.vercel.app/index.html"
+                class="btn"
+                >Lihat Detail</a
+              >
+            </div>
+
+            <!-- Item 3 -->
+            <div class="portfolio-item">
+              <img
+                src="Jasa Web Pemula - Murah & Berkualitas - Google Chrome 07_01_2026 08_18_45.png"
+                alt="Travel Blog"
+                class="portfolio-image"
+              />
+              <h3 class="portfolio-title">Service jasa</h3>
+              <p class="portfolio-description">
+                Jasa pembuatan Website untuk UMKM Makanan, Toko, dan Personal
+                Profesional.
+              </p>
+              <a href="https://nexora-web-umber.vercel.app/" class="btn"
+                >Lihat Detail</a
+              >
+            </div>
+
+            <!-- Item 4 -->
+            <div class="portfolio-item">
+              <img
+                src="Jejak Nubuat - Dokumenter Sejarah - Google Chrome 11_01_2026 22_42_17.png"
+                alt="Travel Blog"
+                class="portfolio-image"
+              />
+              <h3 class="portfolio-title">Blog Perjalanan</h3>
+              <p class="portfolio-description">
+                Website edukasi dokumenter perjalanan di tanah suci.
+              </p>
+              <a href="https://jejak-nubuat.vercel.app/" class="btn"
+                >Lihat Detail</a
+              >
+            </div>
+          </div>
+
+          <!-- Tombol geser -->
+          <button class="carousel-btn prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <!-- Indikator -->
+          <div class="carousel-indicators">
+            <div class="indicator active" data-index="0"></div>
+            <div class="indicator" data-index="1"></div>
+            <div class="indicator" data-index="2"></div>
+            <div class="indicator" data-index="3"></div>
+            <div class="indicator" data-index="4"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact">
+      <div class="container">
+        <div class="hidden" style="text-align: center">
+          <h2 class="section-title">Hubungi Saya</h2>
+          <p class="section-text" style="max-width: 600px; margin: 0 auto 30px">
+            Tertarik untuk bekerja sama atau memiliki pertanyaan tentang proyek
+            saya? Jangan ragu untuk menghubungi saya melalui informasi di bawah
+            ini.
+          </p>
+          <a href="rohiddzalul29@gmail.com" class="btn">
+            <i class="fas fa-envelope"></i> Email Saya
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="logo" style="justify-content: center; margin-bottom: 20px">
+          <div class="logo-icon">M</div>
+          <div class="logo-text">Muhammad Rohid Dzalul</div>
+        </div>
+        <div class="social-links">
+          <a href="https://tiktok.com/@nexora_260" class="social-link"
+            ><i class="fab fa-tiktok"></i
+          ></a>
+          <a href="https://github.com/rohiddzalul29-cyber" class="social-link"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="https://instagram.com/mrhd_26" class="social-link"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="" class="social-link"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2026 Muhammad Rohid Dzalul. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Animasi saat scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, observerOptions);
+
+      // Terapkan animasi ke semua elemen dengan kelas 'hidden'
+      document
+        .querySelectorAll(".hidden")
+        .forEach((el) => observer.observe(el));
+
+      // Carousel untuk karya web
+      const carousel = document.querySelector(".carousel");
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+      const indicators = document.querySelectorAll(".indicator");
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Update indikator aktif
+        indicators.forEach((indicator, index) => {
+          if (index === currentIndex) {
+            indicator.classList.add("active");
+          } else {
+            indicator.classList.remove("active");
+          }
+        });
+      }
+
+      prevBtn.addEventListener("click", () => {
+        currentIndex =
+          currentIndex > 0 ? currentIndex - 1 : indicators.length - 1;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        currentIndex =
+          currentIndex < indicators.length - 1 ? currentIndex + 1 : 0;
+        updateCarousel();
+      });
+
+      // Klik pada indikator
+      indicators.forEach((indicator) => {
+        indicator.addEventListener("click", () => {
+          currentIndex = parseInt(indicator.getAttribute("data-index"));
+          updateCarousel();
+        });
+      });
+
+      // Efek cahaya pada teks saat hover
+      const textHighlights = document.querySelectorAll(".text-highlight");
+      textHighlights.forEach((text) => {
+        text.addEventListener("mouseenter", function () {
+          this.style.transition = "all 0.3s ease";
+        });
+      });
+
+      // Header tetap saat scroll
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.style.padding = "10px 0";
+          header.style.boxShadow = "0 5px 15px rgba(0, 0, 0, 0.1)";
+        } else {
+          header.style.padding = "15px 0";
+          header.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.1)";
+        }
+      });
+
+      // Tombol unduh CV
+      document
+        .getElementById("downloadCV")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Simulasi unduhan CV
+          const downloadMessage = document.createElement("div");
+          downloadMessage.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px; border-radius: 5px; z-index: 1001; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <i class="fas fa-check-circle"></i> CV berhasil diunduh!
+                </div>
+            `;
+          document.body.appendChild(downloadMessage);
+
+          // Hapus pesan setelah 3 detik
+          setTimeout(() => {
+            downloadMessage.remove();
+          }, 3000);
+        });
+
+      // Navigasi halus untuk tautan
+      document.querySelectorAll("nav a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Inisialisasi dengan memastikan carousel di posisi awal
+      updateCarousel();
+    </script>
+  </body>
+</html>
